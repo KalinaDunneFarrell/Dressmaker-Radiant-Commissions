@@ -13,6 +13,10 @@
       <HintPath>$(DressmakerGameRoot)\BepInEx\plugins\DressmakerMods.dll</HintPath>
       <Private>false</Private>
     </Reference>
+
+	<Reference Include="Assembly-CSharp">
+		<HintPath>$(DressmakerGameRoot)\Dressmaker_Data\Managed\Assembly-CSharp.dll</HintPath>
+	</Reference>
 	  
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(DressmakerGameRoot)\Dressmaker_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
