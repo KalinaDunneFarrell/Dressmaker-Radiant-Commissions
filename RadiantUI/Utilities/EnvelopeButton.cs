@@ -41,8 +41,8 @@ namespace RadiantCommission
             // Configure its position and size.
             RectTransform rectTransform = buttonObject.GetComponent<RectTransform>();
 
-            rectTransform.sizeDelta = new Vector2(100, 100);
-            rectTransform.anchoredPosition = new Vector2(0, 0);
+            rectTransform.sizeDelta = new Vector2(150, 150);
+            rectTransform.anchoredPosition = new Vector2(-500, -475);
 
             // Load the PNG and convert it into a Sprite.
             try
