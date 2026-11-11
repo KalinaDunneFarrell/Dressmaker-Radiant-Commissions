@@ -13,12 +13,18 @@ namespace RadiantPlugin
     [BepInDependency("yuu.dressmaker.mods")]
     public sealed class RadiantCommissionPlugin : BaseUnityPlugin
     {
+        private static CommissionService _comService;
+        private static UIService _uiService;
+
+
         /// <summary>
         /// Runs when BepInEx loads the plugin
         /// </summary>
         private void Awake()
         {
             Logger.LogInfo($"{PluginConstants.PluginName} loaded.");
+            _comService = new CommissionService(Logger);
+            _uiService = new UIService(Logger);
         }
 
         private void OnEnable()
@@ -43,21 +49,15 @@ namespace RadiantPlugin
 
             if (frontDesk == null)
             {
-                Logger.LogError("Could not find FrontDesk!");
+                Logger.LogError("Could not find FrontDesk");
                 return;
             }
 
             // Found FrontDesk at runtime w/ maybe accessible canvas
             Logger.LogInfo($"Found FrontDesk: {frontDesk.name}");
 
-            // Helpers
-            CommissionHelper comHelper = new CommissionHelper(Logger);
-            UIHelper uiHelper = new UIHelper(Logger);
-
             // Create Envelope
-            uiHelper.CreateAndDisplayEnvelope(frontDesk, comHelper.GetCommission);
-
-            Logger.LogInfo("Created UI object with RectTransform.");
+            _uiService.CreateAndDisplayEnvelope(frontDesk, _comService.GetCommission);
         }
     }
 }

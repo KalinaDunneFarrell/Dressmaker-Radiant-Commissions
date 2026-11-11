@@ -3,10 +3,9 @@ using System;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace RadiantCommission
+namespace RadiantUI
 {
     /// <summary>
     /// Class to create the Envelope on the desk
@@ -14,9 +13,9 @@ namespace RadiantCommission
     internal class EnvelopeButton
     {
         private readonly BepInEx.Logging.ManualLogSource _logger;
-        private UnityAction _onClick;
+        private Func<QuestDefinition> _onClick;
 
-        public EnvelopeButton(BepInEx.Logging.ManualLogSource logger, UnityAction onClick)
+        public EnvelopeButton(BepInEx.Logging.ManualLogSource logger, Func<QuestDefinition> onClick)
         {
             _logger = logger;
             _onClick = onClick;
@@ -70,10 +69,20 @@ namespace RadiantCommission
 
             // Configure the Button.
             Button button = buttonObject.GetComponent<Button>();
-            button.onClick.AddListener(_onClick);
+            button.onClick.AddListener(OnClick);
 
             _logger.LogInfo("Envelope configured");
         }
+
+        private void OnClick()
+        {
+            QuestDefinition quest = _onClick();
+            _logger.LogInfo($"Created Commission: {quest.PrettyName}");
+            _logger.LogInfo($"Budget: {quest.budget}");
+            _logger.LogInfo($"Completion Requirements: {quest.completionRequirements}");
+            _logger.LogInfo($"Character: {quest.questGiverCharacter}");
+        }
+
 
         /// <summary>
         /// Basically Texture2D.LoadImage but without using that library directly bc it 

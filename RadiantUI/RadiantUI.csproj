@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -51,11 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Utilities\EnvelopeButton.cs" />
+    <Compile Include="Helpers\EnvelopeButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIConstants.cs" />
-    <Compile Include="UIHelper.cs" />
-    <Compile Include="Utilities\SpriteLoader.cs" />
+    <Compile Include="UIService.cs" />
+    <Compile Include="Helpers\SpriteLoader.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace RadiantCommission
+namespace RadiantUI
 {
     internal static class UIConstants
     {
