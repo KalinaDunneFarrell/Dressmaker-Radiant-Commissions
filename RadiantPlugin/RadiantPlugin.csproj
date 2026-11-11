@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -42,7 +42,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Plugin.cs" />
+    <Compile Include="PluginConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RadiantCommission\RadiantCommission.csproj">
+      <Project>{297488bc-17df-4bb3-9317-f9e6c258bb70}</Project>
+      <Name>RadiantCommission</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RadiantUI\RadiantUI.csproj">
+      <Project>{063b2eab-87df-404c-a12b-b84ade9544cb}</Project>
+      <Name>RadiantUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

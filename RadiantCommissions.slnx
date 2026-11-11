@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="README.md" />
+  </Folder>
   <Project Path="RadiantCommission/RadiantCommission.csproj" Id="297488bc-17df-4bb3-9317-f9e6c258bb70" />
   <Project Path="RadiantPlugin/RadiantPlugin.csproj" Id="70e5aac7-7ed3-4894-8bde-efb99ded6269" />
   <Project Path="RadiantUI/RadiantUI.csproj" Id="063b2eab-87df-404c-a12b-b84ade9544cb" />
