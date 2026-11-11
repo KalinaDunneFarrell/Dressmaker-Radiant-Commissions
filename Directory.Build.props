@@ -1,0 +1,32 @@
+
+<Project>
+  <PropertyGroup>
+    <DressmakerGameRoot>C:\Program Files (x86)\Steam\steamapps\common\Dressmaker</DressmakerGameRoot>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BepInEx">
+      <HintPath>$(DressmakerGameRoot)\BepInEx\core\BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="DressmakerMods">
+      <HintPath>$(DressmakerGameRoot)\BepInEx\plugins\DressmakerMods.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+	  
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(DressmakerGameRoot)\Dressmaker_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(DressmakerGameRoot)\Dressmaker_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+  </ItemGroup>
+
+  <Target Name="CheckGameFolder" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(DressmakerGameRoot)\Dressmaker.exe')"
+           Text="Set DressmakerGameRoot to the folder containing Dressmaker.exe." />
+  </Target>
+</Project>
