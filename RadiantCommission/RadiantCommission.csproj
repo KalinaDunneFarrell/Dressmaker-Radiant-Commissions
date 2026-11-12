@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Framework">
+      <HintPath>$(DressmakerGameRoot)\Dressmaker_Data\Managed\Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,11 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommissionHelper.cs" />
+    <Compile Include="CommissionService.cs" />
+    <None Include="Copied from game files\QuestDefinition.cs" />
+    <None Include="Copied from game files\Sketchbook.CreateNewNonCommissionedQuest.cs" />
+    <Compile Include="Creators\CommissionCreator.cs" />
+    <Compile Include="Utilities\MinMax.cs" />
+    <Compile Include="Creators\QuestRequirementCreators.cs" />
+    <Compile Include="Utilities\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
