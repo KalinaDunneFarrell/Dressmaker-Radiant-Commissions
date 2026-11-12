@@ -1,4 +1,4 @@
-﻿using System;
+﻿using RadiantCommission.Creators;
 
 namespace RadiantCommission
 {
@@ -8,6 +8,8 @@ namespace RadiantCommission
     public class CommissionService
     {
         private BepInEx.Logging.ManualLogSource _logger;
+        private bool _radientCommissionIsInRegistry;
+        private QuestDefinition _radientCommissionInRegistry;
 
         public CommissionService(BepInEx.Logging.ManualLogSource logger)
         {
@@ -20,32 +22,16 @@ namespace RadiantCommission
         /// </summary>
         public QuestDefinition GetCommission()
         {
-            _logger.LogInfo("GetCommission() triggered");
+            // prevent adding multiple to ScriptableEnum registry
+            if (!_radientCommissionIsInRegistry)
+            {
+                _logger.LogInfo("GetCommission() triggered");
+                CommissionCreator comHelper = new CommissionCreator(_logger);
 
-            QuestDefinition quest = new QuestDefinition();
-            quest = QuestDefinition.RepeatingQuest; // copy off-rack
-
-            quest.budget = GenerateRandomNumber(3, 7) * 100;
-
-            /* TODO
-             * completionRequirements (List QuestRequirement)
-             * requirements (List StoryletRequirement) : set null?
-                * GetFailedReq uses this, not completion
-             * PrettyName (string) : has no set, how to create?
-             * Quest Tags - from QuestRequirement
-             */
-
-            return quest;
-        }
-
-
-        /// <summary>
-        /// Generate a number from min to the max
-        /// </summary>
-        private int GenerateRandomNumber(int min, int max)
-        {
-            Random random = new Random();
-            return random.Next(min, max + 1);
+                _radientCommissionInRegistry = comHelper.CreateCommission();
+                _radientCommissionIsInRegistry = true;
+            }
+            return _radientCommissionInRegistry;
         }
     }
 }
