@@ -51,11 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\EnvelopeButton.cs" />
+    <Compile Include="Utilities\EnvelopeButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIConstants.cs" />
     <Compile Include="UIService.cs" />
-    <Compile Include="Helpers\SpriteLoader.cs" />
+    <Compile Include="Utilities\SpriteLoader.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
